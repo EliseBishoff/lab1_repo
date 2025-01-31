@@ -1,24 +1,15 @@
-
-source("rundrive.R")
-epoch <- function() {
-  state <- rnorm(1, 50, 15) 
-  team <- 1                 
-  if(state>100&&state<=110){
-    score=7*team
-  }
-  if(state>110&&state<=120){
-    score=3*team
-  }
-
-  while (state <= 100) {
-    result <- rundrive(state, team) 
-    state <- result$state          
-    team <- result$team             
+epoch <- function(down, ytg, fp) {
+  team <- 1
+  total_score <- 0
+  
+  for (time in 1:10) {  
+    result <- drive(team, down, ytg, fp)
+    team <- result$team
+    down <- result$down
+    ytg <- result$ytg
+    fp <- result$fp
+    total_score <- total_score + result$score
   }
   
-
-  c(score)
+  return(total_score)
 }
-
-epoch()
-score
