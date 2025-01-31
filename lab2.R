@@ -24,7 +24,7 @@ drive <- function(team, down, ytg, fp) {
     }
     
     if (fp >= 100&&fp<110) {  
-      # 达阵得分
+      
       score <- score + 7 * team  
       break  
     }
