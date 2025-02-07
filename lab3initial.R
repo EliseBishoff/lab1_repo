@@ -69,16 +69,25 @@ for(alpha in alpha_values) {
       weight <- alpha
     }
 
-    
+ ##normalizing each row   
   row_sums <- rowSums(transition_matrix)
   transition_matrix <- sweep(transition_matrix, 1, row_sums, FUN = "/")
   transition_matrix[is.na(transition_matrix)] <- 0
-  p <- rep(1 / n_teams, n_teams)
-  for (j in 1:10000) {
+ 
+##creating/assigning prob vector   
+p <- rep(1 / n_teams, n_teams)
+ 
+##making steady state
+for (j in 1:10000) {
     p <- p %*% transition_matrix
   }
+
+##saving ranking for current vector    
 steady_states[[as.character(alpha)]] <- setNames(as.numeric(p), teams)
 }
+
+##computes and generates ranking
+  
 for(alpha in names(steady_states)) {
   cat("Alpha =", alpha, "\n")
   ranking <- sort(steady_states[[alpha]], decreasing = TRUE)
