@@ -44,7 +44,7 @@ rankings
 cat("#", paste(names(rankings), collapse = ", "), "\n")
 
 
-
+## part 2
 
 ## remaking list of unique team
 teams <- unique(c(game_data$Visiting_Team, game_data$Home_Team))
@@ -94,3 +94,15 @@ for(alpha in names(steady_states)) {
   cat("Ranking order:", paste(names(ranking), collapse = ", "), "\n")
   cat("Steady state probabilities:", paste(round(ranking, 4), collapse = ", "), "\n\n")
 }
+
+
+## Generating output for comparison
+library(ggplot2)
+library(reshape2)
+
+
+
+
+
+
+
