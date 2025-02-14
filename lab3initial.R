@@ -97,12 +97,34 @@ for(alpha in names(steady_states)) {
 
 
 ## Generating output for comparison
+
 library(ggplot2)
 library(reshape2)
 
+## making data frame
+
+lab3_df <- data.frame(Team = teams)
+for (alpha in names(steady_states)) {
+  alpha_vector <- steady_states[[alpha]]
+  df_alpha <- data.frame(Team = names(alpha_vector), Probability = as.numeric(alpha_vector))
+  steady_df <- merge(lab3_df, df_alpha, by = "Team", all.x = TRUE, suffixes = c("", paste0("_alpha", alpha)))
+}
+
+## plotting sample steady state probs
+selected_teams <- c("TeamA", "TeamB", "TeamC")  # replace with actual team names from your data
+plot_data <- subset(steady_long, Team %in% selected_teams)
 
 
 
 
+## GG plot
+  ggplot(plot_data, aes(x = Alpha, y = Probability, group = Team, color = Team)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Steady State Probs vs. Interleague Weight (Alpha)",
+       x = "Alpha (Interleague Weight)",
+       y = "Steady State Probs")
 
+
+  
 
