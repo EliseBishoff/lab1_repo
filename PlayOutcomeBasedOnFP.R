@@ -1,4 +1,4 @@
-
+pbp <- readRDS("pbp2014-2024 (1).rds")
 simulate_yards_gained <- function(yardline) {
   yard_group <- cut(yardline, breaks = seq(0, 100, by = 10), right = FALSE)
   probs <- probabilities[probabilities$yard_group == yard_group, ]
