@@ -1,8 +1,8 @@
-## Necessary Packages
+## NECESSARY PACKAGES
 library(dplyr)
 library(mgcv)
 
-## Getting field goal data from set
+## TRIMMING FG DATA
 pbp_fg <- pbp %>%
   filter(play_type == "field_goal") %>%
   mutate(
@@ -10,15 +10,15 @@ pbp_fg <- pbp %>%
     made = ifelse(field_goal_result == "made", 1, 0)  # Binary success variable
   )
 
-## Using logistic model (could be changed)
+## LOG REGRESSION
 fg_model <- gam(made ~ s(kick_distance), data = pbp_fg, family = binomial)
 
-## Generating success probability
+## SUCCESS PROB
 fg_success_prob <- function(kick_distance) {
   predict(fg_model, newdata = data.frame(kick_distance = kick_distance), type = "response")
 }
 
-## FG Function
+## FG FUNCTION
 attempt_field_goal <- function(yardline, fg_value = 3, fg_prob_func = fg_success_prob) {
   kick_distance <- yardline + 17
   prob_make <- fg_prob_func(kick_distance)
@@ -39,5 +39,3 @@ attempt_field_goal <- function(yardline, fg_value = 3, fg_prob_func = fg_success
     ))
   }
 }
-
-
