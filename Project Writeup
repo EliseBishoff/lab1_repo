@@ -6,7 +6,10 @@ how the game of football can grow and evolve for new audiences. These are all hy
 change the game in a positive way, making it more exciting for viewers than it already is.
 
 II. Methods
-
+To test these changes in our simulation, we just made a new file for rule configurations. Within this file, there are input options for the 
+different aspects we wanted to look at. We made this change because it felt the most efficient. We can turn the inputs on and off as we see 
+fit, and look at the individual parameters. The function itself is just rule configurations, and we can set things like yards to gain,
+field goal points, and allowance of field goals within the 15 yard line ourselves within the function, and then test the outcome.
 
 III. Results
 
