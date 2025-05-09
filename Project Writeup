@@ -3,18 +3,30 @@ For this project, we wanted to explore whether certain rule changes would make t
 a 15 yard first down with a 5th down, disallowing field goals within 15 yards of the endzone, earning 2 points for forcing a turnover, and field goals being worth 4 points instead
 of 3. We wanted to kind of compare which, if any, of these new rules would increase excitement in the game. We thought this was an interesting question to explore as we think about
 how the game of football can grow and evolve for new audiences. These are all hypotheticals, of course, but we thought it would be fun and interesting to see how new rules could
-change the game in a positive way, making it more exciting for viewers than it already is.
+change the game in a positive way, making it more exciting for viewers than it already is. For this project, we are looking at "more exciting" in terms of higher expected points 
+from a drive.
 
 II. Methods
 To test these changes in our simulation, we just made a new file for rule configurations. Within this file, there are input options for the 
 different aspects we wanted to look at. We made this change because it felt the most efficient. We can turn the inputs on and off as we see 
 fit, and look at the individual parameters. The function itself is just rule configurations, and we can set things like yards to gain,
-field goal points, and allowance of field goals within the 15 yard line ourselves within the function, and then test the outcome.
+field goal points, and allowance of field goals within the 15 yard line ourselves within the function, and then test the outcome. To test our changes, we then 
+just had to change the corresponding parameters with the rule we want to test, and then run the simulation.
 
 III. Results
-
+The main result we were interested in was the mean expected points in a drive, across "all bins." With no change to the rules, we found that the mean expected
+points across all bins from a drive was around 2.81. With our first rule change, a 15 yard first down with 5 downs, the mean EP was around a 3.06.
+The next rule, barring field goal attempts if the team is within 15 yards of the endzone, the mean EP was also around a 2.81. For the third rule change, gaining 2
+points for forcing a turnover, the mean EP from our model was actually just around a 2.8. Finally, for our last rule change we wanted to look at, our model
+saw the mean EP across all bins as around 2.99.
 
 IV. Discussion
-We wanted to explore rule changes and whether they would increase excitement in the game. [findings here]
+We wanted to explore rule changes and whether they would increase excitement in terms of expected points in the game. We found it interesting that the rule change that seemed
+to make the biggest difference was actually a 15 yard first down with a 5th down. One might think the simple change in field goal points, from 3 to 4, would make drives
+higher scoring in the model - which it did seem to do - but the 15 yard first down, at least with the way our model ran, actually seemed to be associated with a higher
+mean EP than even the change in field goal points rule. Also notable was that disallowing field goals within 15 yards of the endzone did not seem to make a meaningful
+difference in the mean expected points, and neither did the 2 points for a forced turnover. In fact, running the model, the 2 points for a forced turnover
+even resulted in a slightly lower mean EP across all bins than the control simulation with no new rules.
 In our simulation, we definitely made a lot of assumptions and simplified the game to a more manageable coding environment. With more time
-and resources, we could have made a more accurate game.
+and resources, we could have made a more accurate game. For the forced turnover point rule, we could have extracted a couple variables to just
+see points from forcing a turnover, but with the model we were able to make we had to settle for something a little more simplified and general.
